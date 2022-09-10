@@ -16,17 +16,17 @@ return require('packer').startup(function()
 	use 'moll/vim-bbye' -- for more sensible delete buffer cmd
 
 	-- themes (disabled other themes to optimize startup time)
-	use 'sainnhe/sonokai'
-	use 'tiagovla/tokyodark.nvim'
-	use 'folke/tokyonight.nvim'
+	--use 'sainnhe/sonokai'
+	--use 'tiagovla/tokyodark.nvim'
+	--use 'folke/tokyonight.nvim'
 	--    use 'joshdick/onedark.vim'
 	--    use { 'catppuccin/nvim', as='catppuccin' }
 	--    use { 'sonph/onehalf', rtp='vim/' }
 	--    use 'liuchengxu/space-vim-dark'
 	--    use 'ahmedabdulrahman/aylin.vim'
-	use "rebelot/kanagawa.nvim"
-	use 'NLKNguyen/papercolor-theme'
-	use 'liuchengxu/space-vim-dark'
+	--use "rebelot/kanagawa.nvim"
+	--use 'NLKNguyen/papercolor-theme'
+	--use 'liuchengxu/space-vim-dark'
 
 	-- file tree
 	use {
@@ -117,12 +117,27 @@ return require('packer').startup(function()
   -- . end
   --}
   use {
-    'Mofiqul/vscode.nvim',
-    config = function()
-      require("configs.vscode").setup()
-    end
+    'Mofiqul/vscode.nvim'
   }
   use {'akinsho/git-conflict.nvim', tag = "*", config = function()
    require('git-conflict').setup()
   end}
+  use {
+    'ldelossa/litee.nvim',
+    -- configure the litee.nvim library 
+    require('litee.lib').setup({
+    tree = {
+        icon_set = "codicons"
+    },
+    panel = {
+        orientation = "left",
+        panel_size  = 30
+    }
+})
+  }
+  use {
+    'ldelossa/litee-calltree.nvim',
+    -- configure litee-calltree.nvim
+    require('litee.calltree').setup({})
+  }
 end)

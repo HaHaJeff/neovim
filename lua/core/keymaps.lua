@@ -34,9 +34,16 @@ vim.keymap.set("n", "[e", require("lspsaga.diagnostic").goto_prev, { silent = tr
 vim.keymap.set("n", "]e", require("lspsaga.diagnostic").goto_next, { silent = true, noremap =true })
 -- or jump to error
 vim.keymap.set("n", "<leader>ho", require("lspsaga.hover").render_hover_doc, { silent = true })
-vim.keymap.set("n", "gd", require("lspsaga.definition").preview_definition, { silent = true,noremap = true })
+-- vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 vim.keymap.set("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
+-- Float terminal
+-- vim.keymap.set("n", "of", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+-- if you want pass somc cli command into terminal you can do like this
+-- open lazygit in lspsaga float terminal
+-- vim.keymap.set("n", "og", "<cmd>Lspsaga open_floaterm lazygit<CR>", { silent = true })
+-- close floaterm
+-- vim.keymap.set("t", "cf", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 -- vim.keymap.set("n", "gi", "<cmd>Lspsaga implement<CR>", { silent = true })
 vim.keymap.set('n', 'sw', ':ClangdSwitchSourceHeader<cr>')
 -- t: terminal
@@ -65,12 +72,6 @@ vim.keymap.set('n', '<A-8>', ':BufferLineGoToBuffer 8<cr>')
 vim.keymap.set('n', '<A-9>', ':BufferLineGoToBuffer 9<cr>')
 vim.keymap.set('n', '<A-c>', ':BufferClose<cr>')
 vim.keymap.set('n', '<A-0>', ':BufferLast<cr>')
-
--- tolggleterm
-vim.keymap.set('n', '<leader>tgf', ':ToggleTerm direction=float<cr>')
-vim.keymap.set('n', '<leader>tgv', ':ToggleTerm direction=vertical<cr>')
-vim.keymap.set('n', '<leader>tgt', ':ToggleTerm direction=tab<cr>')
-vim.keymap.set('n', '<leader>tgh', ':ToggleTerm direction=horizontal<cr>')
 
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
