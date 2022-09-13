@@ -89,7 +89,7 @@ return require('packer').startup(function()
 	use 'rhysd/vim-grammarous'
 
 	-- ui
-	use {'stevearc/dressing.nvim'}
+	-- use {'stevearc/dressing.nvim'}
 
 	use {
 		'goolord/alpha-nvim',
@@ -101,7 +101,9 @@ return require('packer').startup(function()
 	use {
 		'j-hui/fidget.nvim'
 	}
-	use {"akinsho/toggleterm.nvim"}
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
 	use ({ 'projekt0n/github-nvim-theme' })
 	use {'joshdick/onedark.vim'}
 	use {'monsonjeremy/onedark.nvim'}
@@ -140,4 +142,28 @@ return require('packer').startup(function()
     -- configure litee-calltree.nvim
     require('litee.calltree').setup({})
   }
+  
+  use({
+    "aserowy/tmux.nvim",
+    config = function()
+        require("tmux").setup({
+            -- overwrite default configuration
+            -- here, e.g. to enable default bindings
+            copy_sync = {
+                -- enables copy sync and overwrites all register actions to
+                -- sync registers *, +, unnamed, and 0 till 9 from tmux in advance
+                enable = true,
+            },
+            navigation = {
+                -- enables default keybindings (C-hjkl) for normal mode
+                enable_default_keybindings = true,
+            },
+            resize = {
+                -- enables default keybindings (A-hjkl) for normal mode
+                -- enable_default_keybindings = true,
+            }
+        })
+    end
+})
+
 end)

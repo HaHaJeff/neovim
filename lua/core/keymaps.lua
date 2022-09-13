@@ -73,17 +73,13 @@ vim.keymap.set('n', '<A-9>', ':BufferLineGoToBuffer 9<cr>')
 vim.keymap.set('n', '<A-c>', ':BufferClose<cr>')
 vim.keymap.set('n', '<A-0>', ':BufferLast<cr>')
 
-function _G.set_terminal_keymaps()
-  local opts = {noremap = true}
-  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-end
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
+-- window manager
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
+-- git conflicts
 vim.keymap.set('n', 'co', '<Plug>(git-conflict-ours)')
 vim.keymap.set('n', 'ct', '<Plug>(git-conflict-theirs)')
 vim.keymap.set('n', 'cb', '<Plug>(git-conflict-both)')
