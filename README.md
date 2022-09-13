@@ -7,7 +7,7 @@
 
 将 local servers = {'clangd'}替换为 local servers = {'ccls'}
 
-leader间位space
+leader键位为：space
 常用快捷键:
 ```
 leader ff 搜索文件
