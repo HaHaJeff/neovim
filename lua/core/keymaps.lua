@@ -70,8 +70,7 @@ vim.keymap.set('n', '<A-6>', ':BufferLineGoToBuffer 6<cr>')
 vim.keymap.set('n', '<A-7>', ':BufferLineGoToBuffer 7<cr>')
 vim.keymap.set('n', '<A-8>', ':BufferLineGoToBuffer 8<cr>')
 vim.keymap.set('n', '<A-9>', ':BufferLineGoToBuffer 9<cr>')
-vim.keymap.set('n', '<A-c>', ':BufferClose<cr>')
-vim.keymap.set('n', '<A-0>', ':BufferLast<cr>')
+vim.keymap.set('n', '<A-c>', ':BufferLineGroupClose<cr>')
 
 -- window manager
 vim.keymap.set("n", "<C-h>", "<C-w>h")

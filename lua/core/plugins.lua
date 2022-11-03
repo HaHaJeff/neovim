@@ -89,7 +89,7 @@ return require('packer').startup(function()
 	use 'rhysd/vim-grammarous'
 
 	-- ui
-	-- use {'stevearc/dressing.nvim'}
+	use {'stevearc/dressing.nvim'}
 
 	use {
 		'goolord/alpha-nvim',

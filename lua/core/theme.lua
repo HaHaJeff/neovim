@@ -57,7 +57,7 @@ require('material').setup({
 	contrast = {
 		sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
 		floating_windows = false, -- Enable contrast for floating windows
-		line_numbers = true, -- Enable contrast background for line numbers
+		line_numbers = false, -- Enable contrast background for line numbers
 		sign_column = false, -- Enable contrast background for the sign column
 		cursor_line = false, -- Enable darker background for the cursor line
 		non_current_windows = false, -- Enable darker background for non-current windows
@@ -65,7 +65,7 @@ require('material').setup({
 	},
 
 	italics = {
-		comments = true, -- Enable italic comments
+		comments = false, -- Enable italic comments
 		keywords = false, -- Enable italic keywords
 		functions = false, -- Enable italic functions
 		strings = false, -- Enable italic strings
@@ -80,7 +80,7 @@ require('material').setup({
 
 	high_visibility = {
 		lighter = false, -- Enable higher contrast text for lighter style
-		darker = false -- Enable higher contrast text for darker style
+		darker = false-- Enable higher contrast text for darker style
 	},
 
   disable = {
@@ -116,6 +116,7 @@ require('material').setup({
     nvim_illuminate = true,
     mini = true,
 		treesitter=true,
+    bufferline=true,
   }
 })
 --vim.g.material_style = "palenight"
