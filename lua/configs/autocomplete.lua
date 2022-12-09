@@ -106,27 +106,26 @@ function M.config()
 	-- nvim-lspconfig config
 	-- List of all pre-configured LSP servers:
 	-- github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-	local servers = { 'clangd' }
+	local servers = { 'ccls' }
 	for _, lsp in pairs(servers) do
 		require('lspconfig')[lsp].setup {
 			on_attach = on_attach
 		}
 	end
---	local lspconfig = require('lspconfig')
---	lspconfig.ccls.setup {
---    init_options = {
---      cache = {
---        directory = ".ccls-cache",
---      },
---      index = {
---        comments = 0,
---        -- initialBlacklist = {"."},
---        onChange = true,
---        trackDependency = 2,
---        threads = 0,
---      },
---    }
---	}
+	local lspconfig = require('lspconfig')
+	lspconfig.ccls.setup {
+    init_options = {
+      cache = {
+        directory = ".ccls-cache",
+      },
+      index = {
+        comments = 0,
+        onChange = true,
+        trackDependency = 2,
+        threads = 0,
+      },
+    }
+	}
 
 	local devicons = require('nvim-web-devicons')
 	cmp.register_source('devicons', {
@@ -193,4 +192,5 @@ require('lspkind').init({
 --	},
 })
 end
+--  require("ccls").setup(config)
 return M

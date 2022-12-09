@@ -8,11 +8,18 @@ vim.keymap.set('n', '<leader>fg', function() require'telescope.builtin'.live_gre
 vim.keymap.set('n', '<leader>gb', function() require'telescope.builtin'.git_bcommits{} end)
 vim.keymap.set('n', '<leader>gs', function() require'telescope.builtin'.git_status{} end)
 vim.keymap.set('n', '<leader>gc', function() require'telescope.builtin'.git_commits{} end)
-vim.keymap.set('n', '<leader>gr', function() require'telescope.builtin'.lsp_references{} end)
 vim.keymap.set('n', '<leader>gd', function() require'telescope.builtin'.lsp_definitions{} end)
 vim.keymap.set('n', '<leader>gD', function() require'telescope.builtin'.lsp_type_definitions{} end)
-vim.keymap.set('n', '<leader>gi', function() require'telescope.builtin'.lsp_implementations{} end)
 vim.keymap.set('n', '<leader>tc', function() require'telescope.builtin'.colorscheme{} end)
+
+vim.keymap.set('n', '<leader>ic', ':CclsIncomingCallsHierarchy float<cr>')
+vim.keymap.set('n', '<leader>oc', ':CclsOutcomingCallsHierarchy float<cr>')
+vim.keymap.set('n', '<leader>id', ':CclsDerivedHierarchy float<cr>')
+vim.keymap.set('n', '<leader>ib', ':CclsBaseHierarchy float<cr>')
+vim.keymap.set('n', '<leader>mh', ':CclsMemberHierarchy float<cr>')
+vim.keymap.set('n', '<leader>fh', ':CclsMemberFunction float<cr>')
+vim.keymap.set('n', '<leader>th', ':CclsMemberTyoe float<cr>')
+
 -- w: window
 vim.keymap.set('n', '<leader>wh', '<c-w>h')
 vim.keymap.set('n', '<leader>wj', '<c-w>j')
@@ -33,9 +40,6 @@ vim.keymap.set("n", "<leader>cd", require("lspsaga.diagnostic").show_line_diagno
 vim.keymap.set("n", "[e", require("lspsaga.diagnostic").goto_prev, { silent = true, noremap =true })
 vim.keymap.set("n", "]e", require("lspsaga.diagnostic").goto_next, { silent = true, noremap =true })
 -- or jump to error
-vim.keymap.set("n", "<leader>ho", require("lspsaga.hover").render_hover_doc, { silent = true })
--- vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-vim.keymap.set("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 -- Float terminal
 -- vim.keymap.set("n", "of", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
@@ -45,7 +49,7 @@ vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 -- close floaterm
 -- vim.keymap.set("t", "cf", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 -- vim.keymap.set("n", "gi", "<cmd>Lspsaga implement<CR>", { silent = true })
-vim.keymap.set('n', 'sw', ':ClangdSwitchSourceHeader<cr>')
+-- vim.keymap.set('n', 'sw', ':ClangdSwitchSourceHeader<cr>')
 -- t: terminal
 -- h: git
 vim.keymap.set('n', '<leader>hu', ':Gitsigns undo_stage_hunk<cr>')

@@ -57,6 +57,9 @@ return require('packer').startup(function()
 			})
 		end,
 	})
+  use {
+    'ranjithshegde/ccls.nvim',
+  }
 	-- git
 	use {
 		'lewis6991/gitsigns.nvim',
