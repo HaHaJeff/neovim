@@ -10,6 +10,7 @@ vim.keymap.set('n', '<leader>gs', function() require'telescope.builtin'.git_stat
 vim.keymap.set('n', '<leader>gc', function() require'telescope.builtin'.git_commits{} end)
 vim.keymap.set('n', '<leader>gd', function() require'telescope.builtin'.lsp_definitions{} end)
 vim.keymap.set('n', '<leader>gD', function() require'telescope.builtin'.lsp_type_definitions{} end)
+vim.keymap.set('n', '<leader>gr', function() require'telescope.builtin'.lsp_references{} end)
 vim.keymap.set('n', '<leader>tc', function() require'telescope.builtin'.colorscheme{} end)
 
 vim.keymap.set('n', '<leader>ic', ':CclsIncomingCallsHierarchy float<cr>')

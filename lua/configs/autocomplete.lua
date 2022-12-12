@@ -9,20 +9,12 @@ function M.config()
 			expand = function(args)
 				-- luasnip
 				require('luasnip').lsp_expand(args.body)
-				-- vsnip
-				-- vim.fn["vsnip#anonymous"](args.body)
-				-- snippy
-				-- require('snippy').expand_snippet(args.body)
-				-- ultisnip
-				-- vim.fn["UltiSnips#Anon"](args.body)
 			end,
 		},
 		mapping = {
 			['<C-k>'] = cmp.mapping.select_prev_item(),
 			['<C-j>'] = cmp.mapping.select_next_item(),
---			['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
---			['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
---			['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-i>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
 			['<C-y>'] = cmp.config.disable,
 			['<C-e>'] = cmp.mapping({
 				i = cmp.mapping.abort(),
@@ -30,24 +22,13 @@ function M.config()
 			}),
 			-- Accept currently selected item...
 			-- Set `select` to `false` to only confirm explicitly selected items:
-			['<CR>'] = cmp.mapping.confirm({ select = true }),
+			-- ['<CR>'] = cmp.mapping.confirm({ select = true }),
 		},
 		sources = cmp.config.sources({
 			{ name = 'nvim_lsp' },
-			-- { name = 'luasnip' }, -- For luasnip users.
-			-- { name = 'ultisnips' }, -- For ultisnips users.
-			-- { name = 'snippy' }, -- For snippy users.
-		}, { { name = 'buffer' } })
+      { name = 'buffer'},
+		})
 	})
-
-	-- You can also set special config for specific filetypes:
-	--    cmp.setup.filetype('gitcommit', {
-	--        sources = cmp.config.sources({
-	--            { name = 'cmp_git' },
-	--        }, {
-	--            { name = 'buffer' },
-	--        })
-	--    })
 
 	-- nvim-cmp for commands
 	cmp.setup.cmdline('/', {
@@ -99,9 +80,14 @@ function M.config()
 
 			-- ... Your other mappings ...
 		},
-
 		-- ... Your other configuration ...
 	})
+
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+  require 'lspconfig'.ccls.setup {
+    capabilities = capabilities,
+  }
 
 	-- nvim-lspconfig config
 	-- List of all pre-configured LSP servers:
